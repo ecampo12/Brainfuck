@@ -1,4 +1,4 @@
-package BFInterpreter
+package BrainFuck
 
 import (
 	"fmt"
@@ -8,51 +8,51 @@ import (
 )
 
 func TestReadfile(t *testing.T) {
-	output := Readfile("../Testfiles/invalid.bf")
+	output := readfile("../Testfiles/invalid.bf")
 	expected := ""
 	assert.Equal(t, expected, output, "Output does not match the expected value")
 }
 
 func TestHelloword(t *testing.T) {
-	code := Readfile("../Testfiles/helloworld.bf")
+	code := readfile("../Testfiles/helloworld.bf")
 
-	output, _ := Interpreter(code, nil)
+	output, _ := interpreter(code, nil)
 	expected := "Hello World!\n"
 
 	assert.Equal(t, expected, output, "Output does not match the expected value")
 }
 
 func TestHelloword_complex(t *testing.T) {
-	code := Readfile("../Testfiles/helloworld_complex.bf")
+	code := readfile("../Testfiles/helloworld_complex.bf")
 
-	output, _ := Interpreter(code, nil)
+	output, _ := interpreter(code, nil)
 	expected := "Hello World!\n"
 
 	assert.Equal(t, expected, output, "Output does not match the expected value")
 }
 
 func TestHelloword_short(t *testing.T) {
-	code := Readfile("../Testfiles/helloworld_short.bf")
+	code := readfile("../Testfiles/helloworld_short.bf")
 
-	output, _ := Interpreter(code, nil)
+	output, _ := interpreter(code, nil)
 	expected := "Hello, World!"
 
 	assert.Equal(t, expected, output, "Output does not match the expected value")
 }
 
 func TestHiddenmessage(t *testing.T) {
-	code := Readfile("../Testfiles/hiddenmessage.bf")
+	code := readfile("../Testfiles/hiddenmessage.bf")
 
-	output, _ := Interpreter(code, nil)
+	output, _ := interpreter(code, nil)
 	expected := "If you see this, the interpreter works!!\n"
 
 	assert.Equal(t, expected, output, "Output does not match the expected value")
 }
 
 func TestSquare(t *testing.T) {
-	code := Readfile("../Testfiles/square.b")
+	code := readfile("../Testfiles/square.b")
 
-	output, _ := Interpreter(code, nil)
+	output, _ := interpreter(code, nil)
 	expected := ""
 
 	// square the numbers 0-10000
@@ -86,35 +86,35 @@ func isPerfectSquare(n int) bool {
 
 // The following tests are from: http://brainfuck.org/tests.b
 func TestTapesize(t *testing.T) {
-	code := Readfile("../Testfiles/tapesize.b")
+	code := readfile("../Testfiles/tapesize.b")
 
-	output, _ := Interpreter(code, nil)
+	output, _ := interpreter(code, nil)
 	expected := "#\n"
 
 	assert.Equal(t, expected, output, "Output does not match the expected value")
 }
 
 func TestObscure(t *testing.T) {
-	code := Readfile("../Testfiles/obscure.b")
+	code := readfile("../Testfiles/obscure.b")
 
-	output, _ := Interpreter(code, nil)
+	output, _ := interpreter(code, nil)
 	expected := "H\n"
 
 	assert.Equal(t, expected, output, "Output does not match the expected value")
 }
 
 func TestBroken1(t *testing.T) {
-	code := Readfile("../Testfiles/broken1.b")
+	code := readfile("../Testfiles/broken1.b")
 
-	_, err := Interpreter(code, nil)
+	_, err := interpreter(code, nil)
 
 	assert.Error(t, err, "Error: No matching ']' found.")
 }
 
 func TestBroken2(t *testing.T) {
-	code := Readfile("../Testfiles/broken2.b")
+	code := readfile("../Testfiles/broken2.b")
 
-	_, err := Interpreter(code, nil)
+	_, err := interpreter(code, nil)
 
 	assert.Error(t, err, "Error: No matching '[' found.")
 }

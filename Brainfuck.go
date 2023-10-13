@@ -1,7 +1,6 @@
-package main
+package BrainFuck
 
 import (
-	"BFInterpreter"
 	"fmt"
 	"os"
 	"strings"
@@ -12,7 +11,7 @@ func usage() {
 	os.Exit(1)
 }
 
-func main() {
+func Brainfuck() {
 	if len(os.Args) < 2 {
 		usage()
 	}
@@ -24,14 +23,14 @@ func main() {
 		os.Exit(1)
 	}
 
-	code := BFInterpreter.Readfile(filename)
+	code := readfile(filename)
 
 	var inputs []string
 	if len(os.Args) > 2 {
 		inputs = os.Args[2:]
 		fmt.Println(inputs)
 	}
-	res, err := BFInterpreter.Interpreter(code, inputs)
+	res, err := interpreter(code, inputs)
 	if err != nil {
 		fmt.Print(err)
 		os.Exit(1)

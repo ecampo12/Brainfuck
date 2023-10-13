@@ -1,4 +1,4 @@
-package BFInterpreter
+package BrainFuck
 
 import (
 	"bufio"
@@ -9,7 +9,7 @@ import (
 	"strings"
 )
 
-func Readfile(filename string) string {
+func readfile(filename string) string {
 	file, err := os.Open(filename)
 	if err != nil {
 		fmt.Printf("Error opening file: %v\n", err)
@@ -40,7 +40,7 @@ func Readfile(filename string) string {
 	return code
 }
 
-func Interpreter(code string, inputs []string) (string, error) {
+func interpreter(code string, inputs []string) (string, error) {
 	res := ""
 	var err error
 	// original implementation used a 30,000 byte array
