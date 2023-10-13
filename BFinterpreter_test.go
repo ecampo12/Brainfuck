@@ -8,13 +8,13 @@ import (
 )
 
 func TestReadfile(t *testing.T) {
-	output := readfile("../Testfiles/invalid.bf")
+	output := readfile("Testfiles/invalid.bf")
 	expected := ""
 	assert.Equal(t, expected, output, "Output does not match the expected value")
 }
 
 func TestHelloword(t *testing.T) {
-	code := readfile("../Testfiles/helloworld.bf")
+	code := readfile("Testfiles/helloworld.bf")
 
 	output, _ := interpreter(code, nil)
 	expected := "Hello World!\n"
@@ -23,7 +23,7 @@ func TestHelloword(t *testing.T) {
 }
 
 func TestHelloword_complex(t *testing.T) {
-	code := readfile("../Testfiles/helloworld_complex.bf")
+	code := readfile("Testfiles/helloworld_complex.bf")
 
 	output, _ := interpreter(code, nil)
 	expected := "Hello World!\n"
@@ -32,7 +32,7 @@ func TestHelloword_complex(t *testing.T) {
 }
 
 func TestHelloword_short(t *testing.T) {
-	code := readfile("../Testfiles/helloworld_short.bf")
+	code := readfile("Testfiles/helloworld_short.bf")
 
 	output, _ := interpreter(code, nil)
 	expected := "Hello, World!"
@@ -41,7 +41,7 @@ func TestHelloword_short(t *testing.T) {
 }
 
 func TestHiddenmessage(t *testing.T) {
-	code := readfile("../Testfiles/hiddenmessage.bf")
+	code := readfile("Testfiles/hiddenmessage.bf")
 
 	output, _ := interpreter(code, nil)
 	expected := "If you see this, the interpreter works!!\n"
@@ -50,7 +50,7 @@ func TestHiddenmessage(t *testing.T) {
 }
 
 func TestSquare(t *testing.T) {
-	code := readfile("../Testfiles/square.b")
+	code := readfile("Testfiles/square.b")
 
 	output, _ := interpreter(code, nil)
 	expected := ""
@@ -86,7 +86,7 @@ func isPerfectSquare(n int) bool {
 
 // The following tests are from: http://brainfuck.org/tests.b
 func TestTapesize(t *testing.T) {
-	code := readfile("../Testfiles/tapesize.b")
+	code := readfile("Testfiles/tapesize.b")
 
 	output, _ := interpreter(code, nil)
 	expected := "#\n"
@@ -95,7 +95,7 @@ func TestTapesize(t *testing.T) {
 }
 
 func TestObscure(t *testing.T) {
-	code := readfile("../Testfiles/obscure.b")
+	code := readfile("Testfiles/obscure.b")
 
 	output, _ := interpreter(code, nil)
 	expected := "H\n"
@@ -104,7 +104,7 @@ func TestObscure(t *testing.T) {
 }
 
 func TestBroken1(t *testing.T) {
-	code := readfile("../Testfiles/broken1.b")
+	code := readfile("Testfiles/broken1.b")
 
 	_, err := interpreter(code, nil)
 
@@ -112,7 +112,7 @@ func TestBroken1(t *testing.T) {
 }
 
 func TestBroken2(t *testing.T) {
-	code := readfile("../Testfiles/broken2.b")
+	code := readfile("Testfiles/broken2.b")
 
 	_, err := interpreter(code, nil)
 
